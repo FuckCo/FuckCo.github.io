@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "PECAN - Ad Attracter",
+  "version": "1.0",
+  "description": "The ad attracter you never knew you needed. PECAN makes ads come to you!",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
