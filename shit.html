@@ -52,6 +52,13 @@
             word-wrap: break-word;
             white-space: pre-wrap;
         }
+        #downloadButton {
+            background-color: #007BFF;
+            margin-top: 10px;
+        }
+        #downloadButton:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -77,12 +84,17 @@
 
         <!-- Button to Generate the SHIT File -->
         <button id="generateButton">Generate SHIT File</button>
+        
+        <!-- Button to Download the SHIT File -->
+        <button id="downloadButton" style="display: none;">Download SHIT File</button>
 
         <!-- Output Display -->
         <div id="output" class="output"></div>
     </div>
 
     <script>
+        let shitFileContent = ''; // Variable to store the SHIT file content
+
         document.getElementById('generateButton').addEventListener('click', function() {
             // Get input values
             const author = document.getElementById('author').value;
@@ -95,7 +107,7 @@
             const randomId = Math.floor(Math.random() * 1000000); // Random ID between 0 and 999999
 
             // Format the SHIT file content
-            const shitFileContent = `
+            shitFileContent = `
 Author: ${author}
 Date: ${date}
 Time: ${time}
@@ -106,6 +118,22 @@ Stupid as fuck ID: ${randomId}
 
             // Display the generated SHIT file content
             document.getElementById('output').textContent = shitFileContent;
+
+            // Show the download button
+            document.getElementById('downloadButton').style.display = 'block';
+        });
+
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            // Create a Blob from the SHIT file content
+            const blob = new Blob([shitFileContent], { type: 'text/plain' });
+
+            // Create a link to download the file
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'file.shit'; // The name of the file
+
+            // Trigger the download
+            link.click();
         });
     </script>
 
