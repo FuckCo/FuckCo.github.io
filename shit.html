@@ -3,43 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shit File Generator</title>
+    <title>SHIT File Generator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
         .container {
-            text-align: center;
+            width: 100%;
             max-width: 600px;
-        }
-        input, button {
-            padding: 10px;
-            font-size: 16px;
-            margin-top: 10px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
         h1 {
+            text-align: center;
             color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="number"], input[type="datetime-local"], button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            word-wrap: break-word;
+            white-space: pre-wrap;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Welcome to the Shit File Generator!</h1>
-        <p>Generate a useless .shit file to confuse your friends!</p>
-        <input type="text" id="inputField" placeholder="Enter anything...">
-        <button id="generateButton">Generate .shit File</button>
-        <p id="downloadLink" style="display:none;"></p>
+        <h1>SHIT File Generator</h1>
+
+        <!-- Input Form -->
+        <label for="author">Author:</label>
+        <input type="text" id="author" placeholder="Enter author name" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" required>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" required>
+
+        <label for="size">Size:</label>
+        <input type="number" id="size" placeholder="Enter size in bytes" required>
+
+        <label for="place">Place:</label>
+        <input type="text" id="place" placeholder="Enter place" required>
+
+        <!-- Button to Generate the SHIT File -->
+        <button id="generateButton">Generate SHIT File</button>
+
+        <!-- Output Display -->
+        <div id="output" class="output"></div>
     </div>
 
-    <script src="shit.js"></script>
+    <script>
+        document.getElementById('generateButton').addEventListener('click', function() {
+            // Get input values
+            const author = document.getElementById('author').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const size = document.getElementById('size').value;
+            const place = document.getElementById('place').value;
+
+            // Generate a random ID
+            const randomId = Math.floor(Math.random() * 1000000); // Random ID between 0 and 999999
+
+            // Format the SHIT file content
+            const shitFileContent = `
+Author: ${author}
+Date: ${date}
+Time: ${time}
+Size: ${size} bytes
+Place: ${place}
+Stupid as fuck ID: ${randomId}
+`;
+
+            // Display the generated SHIT file content
+            document.getElementById('output').textContent = shitFileContent;
+        });
+    </script>
+
 </body>
 </html>
