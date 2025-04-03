@@ -11,10 +11,30 @@
             padding: 0;
             background-color: #f4f4f4;
         }
+        .menu-bar {
+            background: #111;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .menu-bar a {
+            color: #0ff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .menu-bar a:hover {
+            color: #ff0;
+        }
         .container {
             width: 100%;
             max-width: 600px;
-            margin: 20px auto;
+            margin: 80px auto 20px auto; /* Adjusted for fixed menu */
             padding: 20px;
             background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -28,7 +48,7 @@
             display: block;
             margin-top: 10px;
         }
-        input[type="text"], input[type="number"], input[type="datetime-local"], button {
+        input[type="text"], input[type="number"], input[type="date"], input[type="time"], button {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
@@ -62,6 +82,11 @@
     </style>
 </head>
 <body>
+
+    <div class="menu-bar">
+        <a href="index.html">Main Site</a>
+        <a href="https://fuckco.github.io/shit">Shit File Type Generator</a>
+    </div>
 
     <div class="container">
         <h1>SHIT File Generator</h1>
